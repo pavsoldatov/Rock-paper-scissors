@@ -15,8 +15,8 @@ function playRound() {
   let playerSelection = prompt("Your weapon of choice?").toLowerCase();
   let computerSelection = computerPlay(entities);
 
-  console.log(playerSelection);
-  console.log(computerSelection);
+  console.log(`Player: ${playerSelection}`);
+  console.log(`Computer: ${computerSelection}`);
 
   if (
     !(
@@ -25,26 +25,26 @@ function playRound() {
       playerSelection === "paper"
     )
   ) {
-    alert("Please enter a valid input");
+    alert("Please enter a valid input, such as rock, paper or sccisors.");
     return;
   } else if (playerSelection === "rock" && computerSelection === "paper") {
     alert("You lost. Paper beats rock.");
-    return computerScore++;
+    return ++computerScore;
   } else if (playerSelection === "rock" && computerSelection === "scissors") {
     alert("You won. Rock beats scissors.");
-    return playerScore++;
+    return ++playerScore;
   } else if (playerSelection === "paper" && computerSelection === "rock") {
     alert("You won. Paper beats rock.");
-    return playerScore++;
+    return ++playerScore;
   } else if (playerSelection === "paper" && computerSelection === "scissors") {
     alert("You lost. Scissors beat paper.");
-    return computerScore++;
+    return ++computerScore;
   } else if (playerSelection === "scissors" && computerSelection === "rock") {
     alert("You lost. Rock beats scissors.");
-    return computerScore++;
+    return ++computerScore;
   } else if (playerSelection === "scissors" && computerSelection === "paper") {
     alert("You won. Scissors beat paper.");
-    return playerScore++;
+    return ++playerScore;
   } else {
     alert("It's a tie. Nobody wins.");
   }
