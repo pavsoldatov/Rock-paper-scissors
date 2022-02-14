@@ -28,25 +28,39 @@ function playRound() {
     alert("Please enter a valid input, such as rock, paper or sccisors.");
     return;
   } else if (playerSelection === "rock" && computerSelection === "paper") {
-    alert("You lost. Paper beats rock.");
-    return ++computerScore;
+    ++computerScore;
+    alert(
+      `You lost. Paper beats rock. \nComputer ${computerScore}, Player ${playerScore}`
+    );
   } else if (playerSelection === "rock" && computerSelection === "scissors") {
-    alert("You won. Rock beats scissors.");
-    return ++playerScore;
+    ++playerScore;
+    alert(
+      `You won. Rock beats scissors. \nComputer ${computerScore}, Player ${playerScore}`
+    );
   } else if (playerSelection === "paper" && computerSelection === "rock") {
-    alert("You won. Paper beats rock.");
-    return ++playerScore;
+    ++playerScore;
+    alert(
+      `You won. Paper beats rock. \nComputer ${computerScore}, Player ${playerScore}`
+    );
   } else if (playerSelection === "paper" && computerSelection === "scissors") {
-    alert("You lost. Scissors beat paper.");
-    return ++computerScore;
+    ++computerScore;
+    alert(
+      `You lost. Scissors beat paper. \nComputer ${computerScore}, Player ${playerScore}`
+    );
   } else if (playerSelection === "scissors" && computerSelection === "rock") {
-    alert("You lost. Rock beats scissors.");
-    return ++computerScore;
+    ++computerScore;
+    alert(
+      `You lost. Rock beats scissors. \nComputer ${computerScore}, Player ${playerScore}`
+    );
   } else if (playerSelection === "scissors" && computerSelection === "paper") {
-    alert("You won. Scissors beat paper.");
-    return ++playerScore;
+    ++playerScore;
+    alert(
+      `You won. Scissors beat paper. \nComputer ${computerScore}, Player ${playerScore}`
+    );
   } else {
-    alert("It's a tie. Nobody wins.");
+    alert(
+      `It's a tie. Nobody wins. \nComputer ${computerScore}, Player ${playerScore}`
+    );
   }
 }
 
