@@ -3,10 +3,11 @@ const entities = ["rock", "paper", "scissors"];
 let playerScore = 0;
 let computerScore = 0;
 
+function random(number) {
+  return Math.floor(Math.random() * number);
+}
+
 function computerPlay(array) {
-  function random(number) {
-    return Math.floor(Math.random() * number);
-  }
   let randomIndex = random(array.length);
   return array[randomIndex];
 }
@@ -25,12 +26,12 @@ function playRound() {
       playerSelection === "paper"
     )
   ) {
-    alert("Please enter a valid input, such as rock, paper or sccisors.");
+    alert("Please enter a valid input: rock, paper or sccisors.");
     return;
   } else if (playerSelection === "rock" && computerSelection === "paper") {
     ++computerScore;
     alert(
-      `You lost. Paper beats rock. \nComputer ${computerScore}, Player ${playerScore}`
+      `Computer won. Paper beats rock. \nComputer ${computerScore}, Player ${playerScore}`
     );
   } else if (playerSelection === "rock" && computerSelection === "scissors") {
     ++playerScore;
@@ -45,12 +46,12 @@ function playRound() {
   } else if (playerSelection === "paper" && computerSelection === "scissors") {
     ++computerScore;
     alert(
-      `You lost. Scissors beat paper. \nComputer ${computerScore}, Player ${playerScore}`
+      `Computer won. Scissors beat paper. \nComputer ${computerScore}, Player ${playerScore}`
     );
   } else if (playerSelection === "scissors" && computerSelection === "rock") {
     ++computerScore;
     alert(
-      `You lost. Rock beats scissors. \nComputer ${computerScore}, Player ${playerScore}`
+      `Computer won. Rock beats scissors. \nComputer ${computerScore}, Player ${playerScore}`
     );
   } else if (playerSelection === "scissors" && computerSelection === "paper") {
     ++playerScore;
@@ -68,8 +69,11 @@ for (let i = 0; i < 500; i++) {
   if (playerScore === 5) {
     alert(`Player: ${playerScore}, Computer: ${computerScore}. You have won!`);
     break;
-  } else if (computerScore === 5) {
-    alert(`Player: ${playerScore}, Computer: ${computerScore}. You have lost!`);
+  }
+  if (computerScore === 5) {
+    alert(
+      `Player: ${playerScore}, Computer: ${computerScore}. Computer has won!`
+    );
     break;
   }
   playRound();
