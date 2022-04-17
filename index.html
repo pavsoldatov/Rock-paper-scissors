@@ -1,13 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock, paper, scissors game</title>
-</head>
-<body style="background-color: #333">
-    <div class="divOne"></div>
-</body>
-<script src="./script.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="header">Rock, paper, scissors game</h1>
+      <div class="infopanel">
+        <div class="log"></div>
+        <button class="reset-btn">Play again?</button>
+      </div>
+      <h2 class="subheader">Choose your weapon!</h2>
+      <div class="buttons">
+        <button class="btn rock" type="button" value="rock" data-key="82">
+          Rock<br />👊
+          <p class="hint">press [R] key or click the button</p>
+        </button>
+        <button class="btn paper" type="button" value="paper" data-key="80">
+          Paper<br />🤚
+          <p class="hint">press [P] key or click the button</p>
+        </button>
+        <button
+          class="btn scissors"
+          type="button"
+          value="scissors"
+          data-key="83"
+        >
+          Scissors<br />✌️
+          <p class="hint">press [S] key or click the button</p>
+        </button>
+      </div>
+    </div>
+  </body>
+  <script src="./script.js"></script>
 </html>

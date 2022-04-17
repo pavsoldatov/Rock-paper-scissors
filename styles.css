@@ -1,0 +1,95 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #222;
+  color: #fff;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  max-width: 60%;
+  margin: 0 auto;
+}
+
+.header,
+.subheader {
+  text-align: center;
+  margin: 20px auto;
+}
+
+.header {
+  margin: 60px auto;
+}
+
+.hint {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  color: black;
+  font-weight: 600;
+  font-size: 18px;
+  border-radius: 12px;
+  background: #d6f6ffb0;
+  border: 2px solid;
+  padding: 20px 36px;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+
+.btn:hover {
+  transform: scale(1.06);
+  box-shadow: 0px 0px 20px -12px azure;
+}
+
+.infopanel {
+  display: flex;
+  border: 1px yellow solid;
+  min-width: 560px;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 0 8px;
+}
+
+.log {
+  max-width: 400px;
+  font-size: 14px;
+  overflow: scroll;
+  max-height: 200px;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+.log::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.log::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  background-color: gainsboro;
+  border-radius: 100px;
+}
+
+.reset-btn {
+  padding: 10px 6px;
+  background-color: yellow;
+  border-radius: 6px;
+  cursor: pointer;
+}
