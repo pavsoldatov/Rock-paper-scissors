@@ -20,11 +20,9 @@ function computerPlay(array) {
   return array[randomIndex];
 }
 
-
 buttons.forEach((button) => {
   button.addEventListener("click", playRound);
 });
-
 
 /* Removing listener upon reaching 5 victories during playRound */
 function removeListener() {
@@ -36,53 +34,54 @@ function removeListener() {
 /* The game itself */
 function playRound() {
   while (playerScore < 5 && computerScore < 5) {
-
     let playerSelectionName = this.value;
-    let playerSelectionEmoji = this.dataset.emoji
+    let playerSelectionEmoji = this.dataset.emoji;
 
     let computerSelection = computerPlay(entities);
     let computerSelectionName = computerSelection.name;
     let computerSelectionEmoji = computerSelection.emoji;
 
-    console.log(`plrselection ${playerSelectionName}, plremoji ${playerSelectionEmoji}`)
-
     // I need to refactor the strings, so that they refer to the object's name
     // and do not require hardcoding the string value (ie, rock)
+    if (playerSelectionName === computerSelectionName) {
+      para.innerText = `It's a tie. ${computerSelectionEmoji} vs ${playerSelectionEmoji}. Nobody wins. \n ${showCurrentScore()}`;
+    }
+
     if (playerSelectionName === "rock" && computerSelectionName === "paper") {
       ++computerScore;
       para.innerText = `Computer${computerSelectionEmoji}  vs  Player${playerSelectionEmoji}. Paper beats rock. \nComputer: ${computerScore}, Player: ${playerScore}`;
-    } else if (
+    }
+    if (
       playerSelectionName === "rock" &&
       computerSelectionName === "scissors"
     ) {
       ++playerScore;
       para.innerText = `Computer${computerSelectionEmoji} vs Player${playerSelectionEmoji}. Rock beats scissors. \nComputer: ${computerScore}, Player: ${playerScore}`;
-    } else if (
-      playerSelectionName === "paper" &&
-      computerSelectionName === "rock"
-    ) {
+    }
+    if (playerSelectionName === "paper" && computerSelectionName === "rock") {
       ++playerScore;
       para.innerText = `Computer${computerSelectionEmoji} vs Player${playerSelectionEmoji}. Paper beats rock. \nComputer: ${computerScore}, Player: ${playerScore}`;
-    } else if (
+    }
+    if (
       playerSelectionName === "paper" &&
       computerSelectionName === "scissors"
     ) {
       ++computerScore;
       para.innerText = `Computer${computerSelectionEmoji} vs Player${playerSelectionEmoji}. Scissors beat paper. \nComputer: ${computerScore}, Player: ${playerScore}`;
-    } else if (
+    }
+    if (
       playerSelectionName === "scissors" &&
       computerSelectionName === "rock"
     ) {
       ++computerScore;
       para.innerText = `Computer${computerSelectionEmoji} vs Player${playerSelectionEmoji}. Rock beats scissors. \nComputer: ${computerScore}, Player: ${playerScore}`;
-    } else if (
+    }
+    if (
       playerSelectionName === "scissors" &&
       computerSelectionName === "paper"
     ) {
       ++playerScore;
       para.innerText = `Computer${computerSelectionEmoji} vs Player${playerSelectionEmoji}. Scissors beat paper. \n ${showCurrentScore()}`;
-    } else {
-      para.innerText = `It's a tie. ${computerSelectionEmoji} vs ${playerSelectionEmoji}. Nobody wins. \n ${showCurrentScore()}`;
     }
 
     console.log(`Player: ${playerSelectionName}`);
@@ -93,8 +92,8 @@ function playRound() {
   removeListener();
 }
 
-function showCurrentScore () {
-  return `Computer: ${computerScore}, Player: ${playerScore}`
+function showCurrentScore() {
+  return `Computer: ${computerScore}, Player: ${playerScore}`;
 }
 
 function showFinalScore(computer, player) {
@@ -126,4 +125,3 @@ function restartGame() {
 
 let restartBtn = document.querySelector(".restart-btn");
 restartBtn.addEventListener("click", restartGame);
-console.log(restartBtn);
