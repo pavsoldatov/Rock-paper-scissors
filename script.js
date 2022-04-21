@@ -1,6 +1,6 @@
-let rock = { name: "rock", emoji: "👊" };
-let paper = { name: "paper", emoji: "🤚" };
-let scissors = { name: "scissors", emoji: "✌️" };
+let rock = { name: "rock", emoji: "👊", loosesTo: ["paper", "Spock"] };
+let paper = { name: "paper", emoji: "🤚", loosesTo: ["scissors", "lizard"] };
+let scissors = { name: "scissors", emoji: "✌️", loosesTo: ["rock", "Spock"] };
 const entities = [rock, paper, scissors];
 
 let buttons = document.querySelectorAll(".btn");
@@ -45,47 +45,22 @@ function playRound() {
     // and do not require hardcoding the string value (ie, rock)
     if (playerSelectionName === computerSelectionName) {
       para.innerText = `It's a tie. ${computerSelectionEmoji} vs ${playerSelectionEmoji}. Nobody wins. \n ${showCurrentScore()}`;
+      return;
     }
 
-    if (playerSelectionName === "rock" && computerSelectionName === "paper") {
-      ++computerScore;
-      para.innerText = `Computer${computerSelectionEmoji}  vs  Player${playerSelectionEmoji}. Paper beats rock. \nComputer: ${computerScore}, Player: ${playerScore}`;
-    }
-    if (
-      playerSelectionName === "rock" &&
-      computerSelectionName === "scissors"
-    ) {
+    if (computerSelection.loosesTo.includes(playerSelectionName)) {
       ++playerScore;
-      para.innerText = `Computer${computerSelectionEmoji} vs Player${playerSelectionEmoji}. Rock beats scissors. \nComputer: ${computerScore}, Player: ${playerScore}`;
+      para.innerText = `Computer${computerSelectionEmoji}  vs  Player${playerSelectionEmoji}. Player wins. \nComputer: ${computerScore}, Player: ${playerScore}`;
     }
-    if (playerSelectionName === "paper" && computerSelectionName === "rock") {
-      ++playerScore;
-      para.innerText = `Computer${computerSelectionEmoji} vs Player${playerSelectionEmoji}. Paper beats rock. \nComputer: ${computerScore}, Player: ${playerScore}`;
-    }
-    if (
-      playerSelectionName === "paper" &&
-      computerSelectionName === "scissors"
-    ) {
+
+    if (!computerSelection.loosesTo.includes(playerSelectionName)) {
       ++computerScore;
-      para.innerText = `Computer${computerSelectionEmoji} vs Player${playerSelectionEmoji}. Scissors beat paper. \nComputer: ${computerScore}, Player: ${playerScore}`;
-    }
-    if (
-      playerSelectionName === "scissors" &&
-      computerSelectionName === "rock"
-    ) {
-      ++computerScore;
-      para.innerText = `Computer${computerSelectionEmoji} vs Player${playerSelectionEmoji}. Rock beats scissors. \nComputer: ${computerScore}, Player: ${playerScore}`;
-    }
-    if (
-      playerSelectionName === "scissors" &&
-      computerSelectionName === "paper"
-    ) {
-      ++playerScore;
-      para.innerText = `Computer${computerSelectionEmoji} vs Player${playerSelectionEmoji}. Scissors beat paper. \n ${showCurrentScore()}`;
+      para.innerText = `Computer${computerSelectionEmoji}  vs  Player${playerSelectionEmoji}. Computer wins. \nComputer: ${computerScore}, Player: ${playerScore}`;
     }
 
     console.log(`Player: ${playerSelectionName}`);
     console.log(`Computer: ${computerSelectionName}`);
+
     showFinalScore(computerSelectionEmoji, playerSelectionEmoji);
     return;
   }
@@ -97,17 +72,16 @@ function showCurrentScore() {
 }
 
 function showFinalScore(computer, player) {
-  if (playerScore === 5) {
+  if (playerScore === 5)
     para.innerText = `Computer${computer} vs Player${player}. You have won! Final score:\n${showCurrentScore()}.`;
-    return;
-  }
-  if (computerScore === 5) {
+  if (computerScore === 5)
     para.innerText = `Computer${computer} vs Player${player}. Computer has won! Final score:\n${showCurrentScore()}.`;
-    return;
-  }
 }
 
 /* Restarting the game */
+let restartBtn = document.querySelector(".restart-btn");
+restartBtn.addEventListener("click", restartGame);
+
 function restartGame() {
   console.log(playerScore, computerScore);
 
@@ -115,13 +89,8 @@ function restartGame() {
   computerScore = 0;
   console.log(playerScore, computerScore);
 
-  para.innerText = "";
-
   buttons.forEach((button) => {
     button.addEventListener("click", playRound);
   });
   para.innerText = "Press the button below!";
 }
-
-let restartBtn = document.querySelector(".restart-btn");
-restartBtn.addEventListener("click", restartGame);

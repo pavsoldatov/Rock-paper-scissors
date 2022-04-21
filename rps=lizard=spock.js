@@ -26,4 +26,4 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-game(lizard, rock);
+playRound(lizard, rock);
