@@ -55,13 +55,23 @@ function computerPlay(array) {
 elements that are not .btn, maybe it can solve the keydown/click issue. */
 
 document.addEventListener("click", playRound);
+document.addEventListener("keyup", playRoundKey);
 
-document.addEventListener("keyup", playRoundKey)
-
-function playRoundKey (e) {
+function playRoundKey(e) {
+  console.log(e);
   let btnWithKey = document.querySelector(`.btn[data-key="${e.key}"]`);
   if (!btnWithKey) return;
   console.log(btnWithKey);
+
+  btnWithKey.classList.add("pressed");
+  function removeTransition(e) {
+    if (e.propertyName !== "transform") return;
+    this.classList.remove("pressed");
+  }
+
+  buttons.forEach((button) =>
+    button.addEventListener("transitionend", removeTransition)
+  );
 
   while (playerScore < 5 && computerScore < 5) {
     let playerSelectionName = btnWithKey.value;
@@ -93,7 +103,7 @@ function playRoundKey (e) {
     return;
   }
   removeListener();
-};
+}
 
 /* Removing listener upon reaching 5 victories during playRound */
 function removeListener() {
