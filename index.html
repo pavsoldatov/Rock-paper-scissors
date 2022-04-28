@@ -13,15 +13,49 @@
         <div class="log">
           <p>Press the button below!</p>
         </div>
-        <button class="restart-btn">Play again?</button>
+        <div class="log-buttons">
+          <img
+            src="./question-mark.svg"
+            height="20px"
+            class="help-btn"
+          ></img>
+          <span class="help-btn-text">
+            (!)Please note that English layout should be selected for buttons to work when pressed.<br/>
+            <br/>As Sheldon says: 
+            <br/>scissors✌️ cuts paper🤚, 
+            <br/>paper🤚 covers rock👊, 
+            <br/>rock👊 crushes lizard🦎, 
+            <br/>lizard🦎 poisons Spock🖖, 
+            <br/>Spock🖖 smashes scissors✌️, 
+            <br/>scissors✌️ decapitates liazrd🦎, 
+            <br/>lizard🦎 eats paper🤚, 
+            <br/>paper🤚 disproves Spock🖖, 
+            <br/>Spock🖖 vaporizes rock👊, 
+            <br/>and as it always has, rock👊 crushes scissors✌️
+          </span>
+          <button class="restart-btn">Play again?</button>
+        </div>
       </div>
       <h2 class="subheader">Choose your weapon!</h2>
-      <div class="buttons"> <!-- form ? -->
-        <button class="btn" type="button" value="rock" data-key="r" data-emoji="👊">
+      <div class="buttons">
+        <!-- form ? -->
+        <button
+          class="btn"
+          type="button"
+          value="rock"
+          data-key="r"
+          data-emoji="👊"
+        >
           Rock<br />👊
           <p class="hint">press [R] key or click the button</p>
         </button>
-        <button class="btn" type="button" value="paper" data-key="p" data-emoji="🤚">
+        <button
+          class="btn"
+          type="button"
+          value="paper"
+          data-key="p"
+          data-emoji="🤚"
+        >
           Paper<br />🤚
           <p class="hint">press [P] key or click the button</p>
         </button>
@@ -59,4 +93,5 @@
     </div>
   </body>
   <script src="./script.js"></script>
+  <!-- <script src="./rps-lizard-spock.js"></script> -->
 </html>

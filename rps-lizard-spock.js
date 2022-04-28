@@ -72,11 +72,14 @@ function showFinalScore(computer, player) {
     para.innerText = `Computer${computer} vs Player${player}. Computer has won!\n Final score => ${showCurrentScore()}.`;
 }
 
-/* the game itself;  */
-function playRound(e) {
-  let playerSelectionName;
-  let playerSelectionEmoji;
+/*  Adding functionality for mouse clicks.
+    Reminder to myself - need to DRY-refactor two similar functions 
+    into a single one. */
 
+let playerSelectionName;
+let playerSelectionEmoji;
+
+function playRound(e) {
   if (e instanceof KeyboardEvent) {
     let btnWithKey = document.querySelector(`.btn[data-key="${e.key}"]`);
     if (!btnWithKey) return;
