@@ -37,6 +37,8 @@ body {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .btn {
@@ -78,8 +80,8 @@ body {
 }
 
 .tieAnimation {
-  background-color: #1c6dd0;
-  background-image: -webkit-linear-gradient(30deg, #1c6dd0 50%, #CD1818 50%);
+  background-color: #a3f3eb;
+  background-image: -webkit-linear-gradient(30deg, #a3f3eb 50%, #CD1818 50%);
   color: #000;
   transform: scale(1.06);
   border: 2px solid #000;
