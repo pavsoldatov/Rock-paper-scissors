@@ -46,6 +46,8 @@ function random(number) {
   return Math.floor(Math.random() * number);
 }
 
+// Reminder to myself: maybe highlight a button selected by computer
+// also, need to add a little delay for computer selection
 function computerPlay(array) {
   let randomIndex = random(array.length);
   return array[randomIndex];
@@ -72,18 +74,23 @@ function showFinalScore(computer, player) {
     para.innerText = `Computer${computer} vs Player${player}. Computer has won!\n Final score => ${showCurrentScore()}.`;
 }
 
-/*  Adding functionality for mouse clicks.
-    Reminder to myself - need to DRY-refactor two similar functions 
-    into a single one. */
-
-let playerSelectionName;
-let playerSelectionEmoji;
+function timeout() {
+  if (computerSelectionName == e.target.value) {
+    e.target.classList.add("computerChoice");
+  }
+}
 
 function playRound(e) {
+  let playerSelection;
+  let playerSelectionName;
+  let playerSelectionEmoji;
+
+  // Checking for keyboard or pointer event
   if (e instanceof KeyboardEvent) {
     let btnWithKey = document.querySelector(`.btn[data-key="${e.key}"]`);
     if (!btnWithKey) return;
 
+    playerSelection = btnWithKey;
     playerSelectionName = btnWithKey.value;
     playerSelectionEmoji = btnWithKey.dataset.emoji;
 
@@ -100,14 +107,36 @@ function playRound(e) {
 
   if (e instanceof PointerEvent) {
     if (!e.target.closest(".btn")) return;
+    playerSelection = e.target.closest(".btn");
     playerSelectionName = e.target.closest(".btn").value;
     playerSelectionEmoji = e.target.closest(".btn").dataset.emoji;
   }
 
+  /* the game itself */
   while (playerScore < 5 && computerScore < 5) {
     let computerSelection = computerPlay(entities);
     let computerSelectionName = computerSelection.name;
     let computerSelectionEmoji = computerSelection.emoji;
+
+    // Adding animation to display computerSelection
+    buttons.forEach((button) => {
+      if (playerSelectionName == computerSelectionName) {
+        setTimeout(() => {
+          playerSelection.classList.add("tieAnimation");
+        }, "50");
+        setTimeout(() => {
+          playerSelection.classList.remove("tieAnimation");
+        }, "650");
+      }
+      if (button.value == computerSelectionName) {
+        setTimeout(() => {
+          button.classList.add("computerChoice");
+        }, "50");
+        setTimeout(() => {
+          button.classList.remove("computerChoice");
+        }, "650");
+      }
+    });
 
     if (playerSelectionName === computerSelectionName) {
       para.innerText = `It's a tie. ${computerSelectionEmoji} vs ${playerSelectionEmoji}. Nobody wins. \n ${showCurrentScore()}`;

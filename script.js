@@ -46,6 +46,8 @@ function random(number) {
   return Math.floor(Math.random() * number);
 }
 
+// Reminder to myself: maybe highlight a button selected by computer
+// also, need to add a little delay for computer selection
 function computerPlay(array) {
   let randomIndex = random(array.length);
   return array[randomIndex];

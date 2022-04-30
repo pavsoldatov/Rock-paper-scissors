@@ -1,11 +1,13 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   background-color: #222;
   color: #fff;
-  font-family: "Helvetica", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: "Roboto", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 .container {
@@ -39,21 +41,25 @@ body {
 
 .btn {
   color: white;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 22px;
   border-radius: 12px;
   background: transparent;
-  border: 2px solid #A3F3EB;
+  border: 2px solid #a3f3eb;
   padding: 16px 16px;
   cursor: pointer;
   transition: all 0.1s ease-in-out;
 }
 
+.btn > p {
+  margin: 14px auto;
+}
+
 .btn:hover,
 .pressed {
-  transform: scale(1.04);
+  transform: scale(1.06);
   box-shadow: 0px 0px 20px -12px azure;
-  background-color: #A3F3EB;
+  background-color: #a3f3eb;
   color: #000;
   border: 2px solid #000;
 }
@@ -62,10 +68,27 @@ body {
 .pressed {
   outline: 2px solid yellow;
 }
+/* note to myself to add computer choice highlight */
+.computerChoice {
+  transform: scale(1.06);
+  border: 2px solid #1c6dd0;
+  background-color: #CD1818;
+  color: #fff;
+  box-shadow: 0px 0px 20px -12px azure;
+}
+
+.tieAnimation {
+  background-color: #1c6dd0;
+  background-image: -webkit-linear-gradient(30deg, #1c6dd0 50%, #CD1818 50%);
+  color: #000;
+  transform: scale(1.06);
+  border: 2px solid #000;
+  box-shadow: 0px 0px 20px -12px azure;
+}
 
 .infopanel {
   display: flex;
-  border: 2px #F6E4AD solid;
+  border: 2px #f6e4ad solid;
   border-radius: 10px;
   max-width: 600px;
   margin: 0 auto;
@@ -103,8 +126,8 @@ body::-webkit-scrollbar-thumb {
 .restart-btn {
   padding: 10px 6px;
   background-color: transparent;
-  color: #A3F3EB;
-  border: 2px solid #A3F3EB;
+  color: #a3f3eb;
+  border: 2px solid #a3f3eb;
   border-radius: 6px;
   cursor: pointer;
   box-shadow: 0px 0px 20px -10px azure;
@@ -113,8 +136,8 @@ body::-webkit-scrollbar-thumb {
 .restart-btn:active {
   outline: 1px solid yellow;
 }
-.restart-btn:hover{
-  background-color: #A3F3EB;
+.restart-btn:hover {
+  background-color: #a3f3eb;
   color: black;
   border: 2px solid black;
 }
@@ -132,13 +155,13 @@ body::-webkit-scrollbar-thumb {
 }
 
 .help-btn-text {
-  border: 2px solid #EDE6DB;
+  border: 2px solid #ede6db;
   text-align: center;
   visibility: hidden;
   opacity: 0;
   overflow: visible;
-  background-color: #1A3C40;
-  color: #EDE6DB;
+  background-color: #1a3c40;
+  color: #ede6db;
   font-size: 12px;
   padding: 8px 12px;
 
@@ -152,7 +175,7 @@ body::-webkit-scrollbar-thumb {
   content: "";
   position: absolute;
   border: 10px solid #000;
-  border-color: transparent transparent #EDE6DB transparent;
+  border-color: transparent transparent #ede6db transparent;
   left: 45.5%;
   top: -21px;
   /* transform: translateX(0%) translateY(-00%); */
