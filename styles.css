@@ -85,7 +85,7 @@ body {
 
 .tieAnimation {
   background-color: #a3f3eb;
-  background-image: -webkit-linear-gradient(30deg, #a3f3eb 50%, #CD1818 50%);
+  background-image: -webkit-linear-gradient(60deg, #a3f3eb 50%, #CD1818 50%);
   color: #000;
   transform: scale(1.06);
   border: 2px solid #000;
@@ -107,10 +107,8 @@ body {
 .log {
   max-width: 400px;
   font-size: 14px;
-  overflow: scroll;
   max-height: 75px;
   font-size: 16px;
-  overflow-x: hidden;
 }
 
 .log > p {
@@ -118,12 +116,12 @@ body {
   max-height: 60px;
 }
 
-.log::-webkit-scrollbar,
+.log > p::-webkit-scrollbar,
 body::-webkit-scrollbar {
   width: 6px;
 }
 
-.log::-webkit-scrollbar-thumb,
+.log > p::-webkit-scrollbar-thumb,
 body::-webkit-scrollbar-thumb {
   background-color: gainsboro;
   border-radius: 100px;
