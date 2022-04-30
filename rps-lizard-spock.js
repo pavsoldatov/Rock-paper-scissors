@@ -123,7 +123,7 @@ function playRound(e) {
       if (playerSelectionName == computerSelectionName) {
         setTimeout(() => {
           playerSelection.classList.add("tieAnimation");
-        }, "50");
+        }, "100");
         setTimeout(() => {
           playerSelection.classList.remove("tieAnimation");
         }, "650");
@@ -131,7 +131,7 @@ function playRound(e) {
       if (button.value == computerSelectionName) {
         setTimeout(() => {
           button.classList.add("computerChoice");
-        }, "50");
+        }, "100");
         setTimeout(() => {
           button.classList.remove("computerChoice");
         }, "650");
