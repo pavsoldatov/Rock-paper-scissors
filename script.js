@@ -89,7 +89,8 @@ function playRound(e) {
     /* Adding animation for pressed buttons and removing it on transition end.*/
     btnWithKey.classList.add("pressed");
     function removeTransition(e) {
-      if (e.propertyName !== "transform") return;
+      console.log(e.propertyName)
+      if (!e.propertyName) return;
       this.classList.remove("pressed");
     }
     buttons.forEach((button) =>
@@ -118,7 +119,7 @@ function playRound(e) {
         }, "100");
         setTimeout(() => {
           playerSelection.classList.remove("tieAnimation");
-        }, "650");
+        }, "700");
       }
       if (button.value == computerSelectionName) {
         setTimeout(() => {
@@ -126,7 +127,7 @@ function playRound(e) {
         }, "100");
         setTimeout(() => {
           button.classList.remove("computerChoice");
-        }, "650");
+        }, "700");
       }
     });
 

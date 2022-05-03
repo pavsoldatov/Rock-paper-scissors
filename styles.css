@@ -77,15 +77,15 @@ body {
 /* note to myself to add computer choice highlight */
 .computerChoice {
   transform: scale(1.06);
-  border: 2px solid #1c6dd0;
-  background-color: #CD1818;
+  border: 2px solid #0E79B2;
+  background-color: #BF1363;
   color: #fff;
   box-shadow: 0px 0px 20px -12px azure;
 }
 
 .tieAnimation {
   background-color: #a3f3eb;
-  background-image: -webkit-linear-gradient(60deg, #a3f3eb 50%, #CD1818 50%);
+  background-image: -webkit-linear-gradient(60deg, #a3f3eb 50%, #BF1363 50%);
   color: #000;
   transform: scale(1.06);
   border: 2px solid #000;
@@ -166,12 +166,12 @@ body::-webkit-scrollbar-thumb {
   overflow: visible;
   background-color: #1a3c40;
   color: #ede6db;
-  font-size: 12px;
+  font-size: 14px;
   padding: 8px 12px;
 
   border-radius: 8px;
   position: absolute;
-  transform: translateX(-45%) translateY(60%);
+  transform: translateX(-46.5%) translateY(60%);
   transition: all 150ms ease-out;
 }
 
@@ -180,7 +180,7 @@ body::-webkit-scrollbar-thumb {
   position: absolute;
   border: 10px solid #000;
   border-color: transparent transparent #ede6db transparent;
-  left: 45.5%;
+  left: 47%;
   top: -21px;
   /* transform: translateX(0%) translateY(-00%); */
 }
@@ -188,5 +188,5 @@ body::-webkit-scrollbar-thumb {
 .help-btn:hover + .help-btn-text {
   visibility: visible;
   opacity: 0.98;
-  transform: translateX(-45%) translateY(65%);
+  transform: translateX(-46.5%) translateY(65%);
 }
