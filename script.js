@@ -89,7 +89,6 @@ function playRound(e) {
     /* Adding animation for pressed buttons and removing it on transition end.*/
     btnWithKey.classList.add("pressed");
     function removeTransition(e) {
-      console.log(e.propertyName)
       if (!e.propertyName) return;
       this.classList.remove("pressed");
     }
@@ -98,9 +97,9 @@ function playRound(e) {
     );
   }
 
+  // PointerEvent is for Chrome || MouseEvent is for Firefox
   if (e instanceof PointerEvent || e instanceof MouseEvent) {
     if (!e.target.closest(".btn")) return;
-    console.log(e)
     playerSelection = e.target.closest(".btn");
     playerSelectionName = e.target.closest(".btn").value;
     playerSelectionEmoji = e.target.closest(".btn").dataset.emoji;
@@ -146,9 +145,6 @@ function playRound(e) {
       ++computerScore;
       para.innerText = `Computer${computerSelectionEmoji} vs Player${playerSelectionEmoji}. Computer wins. \n${showCurrentScore()}`;
     }
-
-    console.log(`Player: ${playerSelectionName}`);
-    console.log(`Computer: ${computerSelectionName}`);
 
     showFinalScore(computerSelectionEmoji, playerSelectionEmoji);
     return;
