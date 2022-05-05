@@ -98,8 +98,9 @@ function playRound(e) {
     );
   }
 
-  if (e instanceof PointerEvent) {
+  if (e instanceof PointerEvent || e instanceof MouseEvent) {
     if (!e.target.closest(".btn")) return;
+    console.log(e)
     playerSelection = e.target.closest(".btn");
     playerSelectionName = e.target.closest(".btn").value;
     playerSelectionEmoji = e.target.closest(".btn").dataset.emoji;
