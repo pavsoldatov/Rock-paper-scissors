@@ -148,6 +148,7 @@ body::-webkit-scrollbar-thumb {
   display: flex;
   align-items: center;
   gap: 12px;
+  margin-left: 4px;
 }
 
 .help-btn {
@@ -206,7 +207,13 @@ body::-webkit-scrollbar-thumb {
 }
 
 @media (max-width: 768px){
+  .container {
+    max-width: 85%;
+  }
   .restart-btn {
     width: 70px;
+  }
+  .log {
+    font-size: 12px;
   }
 }
