@@ -74,6 +74,7 @@ body {
 .pressed {
   outline: 2px solid yellow;
 }
+
 /* note to myself to add computer choice highlight */
 .computerChoice {
   transform: scale(1.06);
@@ -191,7 +192,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 @media (min-width: 1590px) {
-  .buttons{
+  .buttons {
     max-width: calc(100% - 2em);
   }
   .subheader {
@@ -206,7 +207,7 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
-@media (max-width: 768px){
+@media (max-width: 768px) {
   .container {
     max-width: 85%;
   }
