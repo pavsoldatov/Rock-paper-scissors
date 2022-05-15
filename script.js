@@ -79,7 +79,8 @@ function playRound(e) {
 
   // Checking for keyboard or pointer event
   if (e instanceof KeyboardEvent) {
-    let btnWithKey = document.querySelector(`.btn[data-key="${e.key}"]`);
+    let btnWithKey = document.querySelector(`.btn[data-code="${e.code}"]`);
+    console.log(btnWithKey)
     if (!btnWithKey) return;
 
     playerSelection = btnWithKey;
@@ -115,18 +116,18 @@ function playRound(e) {
     buttons.forEach((button) => {
       if (playerSelectionName == computerSelectionName) {
         setTimeout(() => {
-          playerSelection.classList.add("tieAnimation");
+          playerSelection.classList.add("tie-animation");
         }, "100");
         setTimeout(() => {
-          playerSelection.classList.remove("tieAnimation");
+          playerSelection.classList.remove("tie-animation");
         }, "700");
       }
       if (button.value == computerSelectionName) {
         setTimeout(() => {
-          button.classList.add("computerChoice");
+          button.classList.add("computer-choice");
         }, "100");
         setTimeout(() => {
-          button.classList.remove("computerChoice");
+          button.classList.remove("computer-choice");
         }, "700");
       }
     });
