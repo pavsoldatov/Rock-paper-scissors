@@ -80,8 +80,8 @@ function playRound(e) {
   // Checking for keyboard or pointer event
   if (e instanceof KeyboardEvent) {
     let btnWithKey = document.querySelector(`.btn[data-code="${e.code}"]`);
-    console.log(btnWithKey)
     if (!btnWithKey) return;
+    if (e.ctrlKey) return;
 
     playerSelection = btnWithKey;
     playerSelectionName = btnWithKey.value;
