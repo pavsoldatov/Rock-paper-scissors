@@ -193,7 +193,7 @@ body::-webkit-scrollbar-thumb {
 
 @media (min-width: 1590px) {
   .buttons {
-    max-width: calc(100% - 2em);
+    max-width: calc(100% - 4em);
   }
   .subheader {
     margin-top: 60px;
