@@ -7,7 +7,7 @@ I tried to broaden the assignment requirements by adding a couple of features:
 
 Link to [Live Demo](https://pavsoldatov.github.io/Rock-paper-scissors/)
 
-#### A little reminder to myselfkey takeways from this project.
+#### Project reflections.
 ##### "When you have a hammer everything becomes a ~~nail~~ string"
 In this project, I tried my best to avoid hardcoding the outcomes of the game. For this purpose, I created an object for every entity that would include a name, an emoji, and an array of strings to which the parent entity looses. This allowed me to decrease the amount of code significantly, while little hardcoding was required.
 
